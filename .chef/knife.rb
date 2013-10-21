@@ -1,8 +1,9 @@
 # See http://docs.opscode.com/config_rb_knife.html for more information on knife configuration options
 
 current_dir = File.dirname(__FILE__)
-log_level                :info
+log_level                :debug
 log_location             STDOUT
+chef_client_path         "chef-client -l debug"
 node_name                "wpannell"
 client_key               "#{current_dir}/wpannell.pem"
 validation_client_name   "ventana-validator"
