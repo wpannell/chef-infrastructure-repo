@@ -19,9 +19,34 @@
 #
 
 include_recipe "webpi"
+include_recipe "windows"
 
 unless node['iis']['accept_eula'] then
   Chef::Application.fatal!("You must accept the EULA by setting the attribute node['iis']['accept_eula'] before installing IIS.")
+end
+
+windows_feature "IIS-WebServerRole" do
+  action :install
+end
+
+windows_feature "IIS-ISAPIFilter" do
+  action :install
+end
+
+windows_feature "IIS-ISAPIExtensions" do
+  action :install
+end
+
+windows_feature "NetFx4Extended-ASPNET45" do
+  action :install
+end
+
+windows_feature "IIS-NetFxExtensibility45" do
+  action :install
+end
+
+windows_feature "IIS-ASPNET45" do
+  action :install
 end
 
 webpi_product node['iis']['components'] do
