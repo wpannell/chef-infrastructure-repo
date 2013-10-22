@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-default['iis']['accept_eula'] = false
+default['iis']['accept_eula'] = true
 
 default['iis']['home']       = "#{ENV['WINDIR']}\\System32\\inetsrv"
 default['iis']['conf_dir']   = "#{iis['home']}\\config"
