@@ -21,8 +21,6 @@
 include_recipe "webpi"
 include_recipe "windows"
 
-default['iis']['accept_eula'] = true
-
 unless node['iis']['accept_eula'] then
   Chef::Application.fatal!("You must accept the EULA by setting the attribute node['iis']['accept_eula'] before installing IIS.")
 end
